@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drizzy Synapse (formerly Drizzy AI V6)</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style2.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9323794430738644"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="app-container">
+
+  <!-- SIDEBAR. -->
+  <aside id="sidebar" class="sidebar">
+
+    <div class="sidebar-header">
+      <div class="logo">Drizzy Synapse (formerly Drizzy AI V6)</div>
+    </div>
+
+    <div class="sidebar-search">
+      <input id="chat-search" type="text" placeholder="Search chats..." oninput="filterChats(this.value)">
+    </div>
+
+    <div class="sidebar-actions">
+      <button class="new-chat" onclick="newChat()">
+        <i class="fas fa-plus"></i> New Chat
+      </button>
+    </div>
+
+    <div id="chat-list" class="chat-list"></div>
+
+    <div class="sidebar-footer">
+      <button class="settings-btn" onclick="openSettings()">
+        <i class="fas fa-cog"></i> Settings
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <header class="chat-header">
+      <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="header-center">
+        <img src="assets/imgs/icon.png" class="header-avatar">
+        <h1>Drizzy Synapse (formerly Drizzy AI V6)</h1>
+      </div>
+    </header>
+
+    <!-- CHAT -->
+    <section id="chat-container" class="chat-container"></section>
+
+    <!-- INPUT -->
+    <footer class="input-area">
+      <form id="input-form" class="input-form">
+
+        <div class="input-tools">
+          <button type="button" class="tool-btn" onclick="startVoiceInput()">
+            <i class="fas fa-microphone"></i>
+          </button>
+
+          <button type="button" class="tool-btn" onclick="generateImage()">
+            <i class="fas fa-image"></i>
+          </button>
+        </div>
+
+        <input id="user-input" type="text" placeholder="Message Drizzy..." autocomplete="off" />
+
+        <button type="submit" class="send-btn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+
+      </form>
+    </footer>
+
+  </main>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings-modal" class="modal">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>Settings</h2>
+      <button class="close-btn" onclick="closeSettings()">×</button>
+    </div>
+
+    <div class="setting-section">
+      <label>Drizzy Nexus API Key</label>
+      <div class="input-group">
+        <input id="api-key" type="password" placeholder="gsk_..." />
+        <button onclick="saveApiKey()">Save</button>
+      </div>
+    </div>
+
+    <div class="setting-section">
+      <label>Model</label>
+      <select id="model-select" onchange="setModel(this.value)">
+        <option value="openai/gpt-oss-120b">GPT OSS 120B</option>
+        <option value="openai/gpt-oss-20b">GPT OSS 20B</option>
+        <option value="llama3-8b-8192">Llama 3</option>
+      </select>
+    </div>
+
+    <div class="setting-section">
+      <label>Theme</label>
+      <select id="theme-select" onchange="setTheme(this.value)">
+        <option value="auto">Auto</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <button class="danger-btn" onclick="resetEverything()">Reset Everything</button>
+
+  </div>
+</div>
+
+<!-- old script import -->
+ <script src="assets/js/script.js"></script> 
+
+<!-- new script import -->
+<!-- <script type="module" src="assets/js/main.js"></script> -->
+
+</body>
+</html>
